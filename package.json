@@ -11,6 +11,7 @@
     "post-commit": "node ./script/commitScript.js",
     "tdd-script": "node ./script/tddScript.js",
     "cypress": "cypress open",
+    "test-once": "jest --verbose --coverage",
     "cypress-run": "cypress run",
     "lint": "eslint .",
     "postinstall": "npx husky install"
