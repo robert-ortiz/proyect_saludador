@@ -13,7 +13,8 @@
     "cypress": "cypress open",
     "cypress-run": "cypress run",
     "lint": "eslint .",
-    "postinstall": "npx husky install"
+    "postinstall": "npx husky install",
+    "sem-commits": "node semantic-commits.js"
   },
   "author": "Israel Antezana R.",
   "license": "ISC",
