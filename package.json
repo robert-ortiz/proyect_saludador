@@ -7,9 +7,7 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "test-export-json": "jest --json --outputFile=./script/report.json",
-    "post-commit": "node ./script/commitScript.js",
-    "tdd-script": "node ./script/tddScript.js",
+    "test": "node ./script/tddScript.js",
     "cypress": "cypress open",
     "cypress-run": "cypress run",
     "lint": "eslint .",
