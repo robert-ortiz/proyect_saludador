@@ -42,12 +42,14 @@ const extractAndAddObject = async (reportFile, tddLogFile) => {
     const failedTests = jsonData.numFailedTests; 
     const totalTests = jsonData.numTotalTests;
     const startTime = jsonData.startTime;
+    const success = jsonData.sucess;
 
     const newReport = {
       numPassedTests: passedTests,
       failedTests: failedTests,
       numTotalTests: totalTests,
-      timestamp: startTime
+      timestamp: startTime,
+      success: sucess
     };
 
     const tddLog = readJSONFile(tddLogFile);
