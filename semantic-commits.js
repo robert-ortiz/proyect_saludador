@@ -1,8 +1,34 @@
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const args = process.argv.slice(2); 
-const stateFilePath = './.husky/.commit-state'; 
-let habilitacionCommits = 'disabled';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+function checkDependencies() {
+  const huskyDir = path.join(__dirname, '.husky');
+
+  if (!fs.existsSync(huskyDir)) {
+    console.error('⚠️  Las dependencias necesarias no están instaladas. Por favor, ejecuta `npm install` e inténtalo de nuevo.');
+    process.exit(1);
+  }
+}
+
+checkDependencies();
+
+const args = process.argv.slice(2);
+const stateFilePath = './.husky/.commit-state';
+const semanticRegex = /^(feat|fix|docs|style|refactor|test|chore|perf)(\(\w+\))?: .{1,150}$/;
+
+function readStateFile() {
+  return fs.existsSync(stateFilePath)
+    ? fs.readFileSync(stateFilePath, 'utf-8').trim()
+    : 'disabled';
+}
+
+function writeStateFile(state) {
+  fs.writeFileSync(stateFilePath, state, 'utf-8');
+}
 
 function printCommitGuide() {
   console.log(`\n📝 \x1b[1mGuía para mensajes de commit\x1b[0m\n`);
@@ -32,42 +58,41 @@ function printCommitError() {
   console.error('refactor: simplificar la función que valida el correo electrónico');
 }
 
-if (fs.existsSync(stateFilePath)) {
-  habilitacionCommits = fs.readFileSync(stateFilePath, 'utf-8').trim();
+function validateCommitMessage(commitMessagePath) {
+  try {
+    const commitMessage = fs.readFileSync(commitMessagePath, 'utf-8').trim();
+    if (!semanticRegex.test(commitMessage)) {
+      printCommitError();
+      process.exit(1);
+    }
+    console.log('✅ Mensaje de commit válido.');
+  } catch (err) {
+    console.error('❌ Error durante la validación del mensaje del commit:', err);
+    process.exit(1);
+  }
 }
 
+function handleStateChange(state) {
+  writeStateFile(state);
+  console.log(`🔄 Validación de commits ${state === 'enable' ? 'habilitada' : 'deshabilitada'}.`);
+  if (state === 'enable') printCommitGuide();
+  process.exit(0);
+}
 
-if (args[0] === 'enable' || args[0] === 'disabled') {
-  habilitacionCommits = args[0];
-  fs.writeFileSync(stateFilePath, habilitacionCommits, 'utf-8');
-  console.log(`🔄 Validación de commits ${habilitacionCommits === 'enable' ? 'habilitada' : 'deshabilitada'}.`);
+function main() {
+  const habilitacionCommits = readStateFile();
+
+  if (args[0] === 'enable' || args[0] === 'disabled') {
+    handleStateChange(args[0]);
+  }
+
   if (habilitacionCommits === 'enable') {
-    printCommitGuide();
+    const commitMessagePath = args[0];
+    validateCommitMessage(commitMessagePath);
+  } else {
+    console.log('🔄 Validación de commits deshabilitada.');
   }
   process.exit(0);
 }
 
-
-if (habilitacionCommits === 'enable') {
-  try {
-    const commitMessagePath = args[0]; 
-    const commitMessage = fs.readFileSync(commitMessagePath, 'utf-8').trim();
-
-  
-    const semanticRegex = /^(feat|fix|docs|style|refactor|test|chore|perf)(\(\w+\))?: .{1,150}$/;
-
-    if (!semanticRegex.test(commitMessage)) {
-      printCommitError();
-      process.exit(1); 
-    }
-
-    console.log('✅ Mensaje de commit válido.');
-    process.exit(0); 
-  } catch (err) {
-    console.error('❌ Error durante la validación del mensaje del commit:', err);
-    process.exit(1); 
-  }
-} else {
-  console.log('🔄 Validación de commits deshabilitada.');
-  process.exit(0); 
-}
+main();
