@@ -1,9 +1,10 @@
-const { defineConfig } = require("cypress");
+// cypress.config.mjs
+import { defineConfig } from "cypress";
 
-module.exports = defineConfig({
+export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      // configurar eventos de Cypress aquí
     },
     baseUrl: "http://localhost:1234",
   },
