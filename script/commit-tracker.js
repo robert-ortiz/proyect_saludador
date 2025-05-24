@@ -66,7 +66,7 @@ function getCommitInfo(sha) {
     try {
       // Excluir commit-history.json al obtener las estadísticas del diff
       const diffStats = execSync(
-        `git diff --stat ${parentRef} ${gitSha} -- ':!${DATA_FILE}'`
+        `git diff --stat ${parentRef} ${gitSha} -- ":!${DATA_FILE}"`
       ).toString();
       const additionsMatch = diffStats.match(/(\d+) insertion/);
       const deletionsMatch = diffStats.match(/(\d+) deletion/);
@@ -81,7 +81,7 @@ function getCommitInfo(sha) {
       // Si es el primer commit, no hay parent para comparar
       try {
         const diffStats = execSync(
-          `git show --stat ${gitSha} -- ':!${DATA_FILE}'`
+          `git show --stat ${gitSha} -- ":!${DATA_FILE}"`
         ).toString();
         const additionsMatch = diffStats.match(/(\d+) insertion/);
         additions = additionsMatch ? parseInt(additionsMatch[1]) : 0;
