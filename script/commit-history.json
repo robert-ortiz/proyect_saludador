@@ -1,16 +1,35 @@
 [
   {
-    "sha": "HEAD",
+    "sha": "d4c20596710f0fa332a051a85c2ac6557047be09",
     "author": "Robert",
     "commit": {
       "date": "2025-09-01T20:34:30.000Z",
       "message": "first commit: hola",
-      "url": "https://github.com/UCB-TallerDeDesarrollo/TDDLabBaseProject/commit/HEAD"
+      "url": "https://github.com/UCB-TallerDeDesarrollo/TDDLabBaseProject/commit/d4c20596710f0fa332a051a85c2ac6557047be09"
     },
     "stats": {
       "total": 14,
       "additions": 2,
       "deletions": 12,
+      "date": "2025-09-01"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "HEAD",
+    "author": "Robert",
+    "commit": {
+      "date": "2025-09-01T20:55:46.000Z",
+      "message": "second commit:saludo con nombre",
+      "url": "https://github.com/robert-ortiz/proyect_saludador/commit/HEAD"
+    },
+    "stats": {
+      "total": 27,
+      "additions": 17,
+      "deletions": 10,
       "date": "2025-09-01"
     },
     "coverage": 100,
