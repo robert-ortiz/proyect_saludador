@@ -1,15 +1,25 @@
 import getHour from './hora';
-function saludar(nombre)
+export default function saludar(nombre, genero)
 {
     const hora = getHour();
+    let saludo;
 
     if (hora < 12) {
-        return 'Buenos días ' + nombre;
+        saludo = 'Buenos días ' ;
     } else if (hora < 19) {
-        return 'Buenas tardes ' + nombre;
+        saludo = 'Buenas tardes ';
     } else {
-        return 'Buenas noches ' + nombre;
+        saludo = 'Buenas noches ';
     }
+
+    saludo += '' ;
+
+    if (genero === 'femenino') {
+        saludo += ' señorita ' + nombre;
+    } else if (genero === 'masculino') {
+        saludo += ' joven ' + nombre;
+    }
+
+    return saludo;
 }
 
-export default saludar;

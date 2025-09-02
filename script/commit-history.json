@@ -38,16 +38,35 @@
     "conclusion": "success"
   },
   {
-    "sha": "HEAD",
+    "sha": "851e6a93d28c1f5ee5773da54a51e0f731ce82e6",
     "author": "Robert",
     "commit": {
       "date": "2025-09-02T01:52:13.000Z",
       "message": "saludo depende la hora",
-      "url": "https://github.com/robert-ortiz/proyect_saludador/commit/HEAD"
+      "url": "https://github.com/robert-ortiz/proyect_saludador/commit/851e6a93d28c1f5ee5773da54a51e0f731ce82e6"
     },
     "stats": {
       "total": 40,
       "additions": 32,
+      "deletions": 8,
+      "date": "2025-09-02"
+    },
+    "coverage": 0,
+    "test_count": 0,
+    "failed_tests": 0,
+    "conclusion": "neutral"
+  },
+  {
+    "sha": "HEAD",
+    "author": "Robert",
+    "commit": {
+      "date": "2025-09-02T02:52:13.000Z",
+      "message": "fourth commit:saludo por genero",
+      "url": "https://github.com/robert-ortiz/proyect_saludador/commit/HEAD"
+    },
+    "stats": {
+      "total": 32,
+      "additions": 24,
       "deletions": 8,
       "date": "2025-09-02"
     },
