@@ -76,17 +76,36 @@
     "conclusion": "neutral"
   },
   {
-    "sha": "HEAD",
+    "sha": "419d32beaf1f611a38313c7a20c1b988f3baa964",
     "author": "Robert",
     "commit": {
       "date": "2025-09-02T03:30:29.000Z",
       "message": "fifth commit: saludo por edad",
-      "url": "https://github.com/robert-ortiz/proyect_saludador/commit/HEAD"
+      "url": "https://github.com/robert-ortiz/proyect_saludador/commit/419d32beaf1f611a38313c7a20c1b988f3baa964"
     },
     "stats": {
       "total": 35,
       "additions": 24,
       "deletions": 11,
+      "date": "2025-09-02"
+    },
+    "coverage": 0,
+    "test_count": 0,
+    "failed_tests": 0,
+    "conclusion": "neutral"
+  },
+  {
+    "sha": "HEAD",
+    "author": "Robert",
+    "commit": {
+      "date": "2025-09-02T03:43:30.000Z",
+      "message": "sixth commit:saludar por idioma",
+      "url": "https://github.com/robert-ortiz/proyect_saludador/commit/HEAD"
+    },
+    "stats": {
+      "total": 78,
+      "additions": 55,
+      "deletions": 23,
       "date": "2025-09-02"
     },
     "coverage": 0,
