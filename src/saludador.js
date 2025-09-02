@@ -1,5 +1,5 @@
-import getHour from './hora';
-export default function saludar(nombre, genero)
+import getHour from './hora.js';
+export default function saludar(nombre, genero, edad)
 {
     const hora = getHour();
     let saludo;
@@ -13,13 +13,20 @@ export default function saludar(nombre, genero)
     }
 
     saludo += '' ;
-
-    if (genero === 'femenino') {
-        saludo += ' señorita ' + nombre;
-    } else if (genero === 'masculino') {
-        saludo += ' joven ' + nombre;
+    if (edad > 30)
+    {
+        if (genero === 'femenino') {
+            saludo += ' Sra. ' + nombre;
+        } else if (genero === 'masculino') {
+            saludo += ' Sr. ' + nombre;
+        }
     }
-
+    else {
+        if (genero === 'femenino') {
+            saludo += ' señorita ' + nombre;
+        } else if (genero === 'masculino') {
+            saludo += ' joven ' + nombre;
+        }
+    }
     return saludo;
 }
-
