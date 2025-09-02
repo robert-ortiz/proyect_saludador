@@ -19,12 +19,12 @@
     "conclusion": "success"
   },
   {
-    "sha": "HEAD",
+    "sha": "e7790f91cd0957584697f70b9a668e5ed92cc84e",
     "author": "Robert",
     "commit": {
       "date": "2025-09-01T20:55:46.000Z",
       "message": "second commit:saludo con nombre",
-      "url": "https://github.com/robert-ortiz/proyect_saludador/commit/HEAD"
+      "url": "https://github.com/robert-ortiz/proyect_saludador/commit/e7790f91cd0957584697f70b9a668e5ed92cc84e"
     },
     "stats": {
       "total": 27,
@@ -36,5 +36,24 @@
     "test_count": 1,
     "failed_tests": 0,
     "conclusion": "success"
+  },
+  {
+    "sha": "HEAD",
+    "author": "Robert",
+    "commit": {
+      "date": "2025-09-02T01:52:13.000Z",
+      "message": "saludo depende la hora",
+      "url": "https://github.com/robert-ortiz/proyect_saludador/commit/HEAD"
+    },
+    "stats": {
+      "total": 40,
+      "additions": 32,
+      "deletions": 8,
+      "date": "2025-09-02"
+    },
+    "coverage": 0,
+    "test_count": 0,
+    "failed_tests": 0,
+    "conclusion": "neutral"
   }
 ]
